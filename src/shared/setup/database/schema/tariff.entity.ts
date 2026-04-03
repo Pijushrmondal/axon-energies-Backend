@@ -7,7 +7,7 @@ export class Tariff extends BaseEntity {
   @Column({ type: 'uuid', nullable: true })
   userId: string;
 
-  @OneToOne(() => User, (user) => user.tariff)
-  @JoinColumn()
-  user: User;
+  // @OneToOne(() => User, (user) => user.tariff)
+  // @JoinColumn()
+  // user: User;
 }

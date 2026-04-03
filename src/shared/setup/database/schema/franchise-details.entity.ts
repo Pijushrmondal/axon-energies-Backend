@@ -7,7 +7,7 @@ export class FranchiseDetails extends BaseEntity {
   @Column({ type: 'uuid' })
   userId: string;
 
-  @OneToOne(() => User, (user) => user.franchiseDetails)
-  @JoinColumn()
-  user: User;
+  // @OneToOne(() => User, (user) => user.franchiseDetails)
+  // @JoinColumn()
+  // user: User;
 }

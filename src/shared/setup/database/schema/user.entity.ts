@@ -93,30 +93,30 @@ export class User extends BaseEntity {
 
   // ─── Relations ───────────────────────────────────────────────────────
 
-  @ManyToOne(() => Role, (role) => role.users, { eager: false })
-  @JoinColumn()
-  role: Role;
+  // @ManyToOne(() => Role, (role) => role.users, { eager: false })
+  // @JoinColumn()
+  // role: Role;
 
-  @OneToMany(() => Subscription, (sub) => sub.user, { cascade: true })
-  subscriptions: Subscription[];
+  // @OneToMany(() => Subscription, (sub) => sub.user, { cascade: true })
+  // subscriptions: Subscription[];
 
-  @OneToOne(() => FranchiseDetails, (fd) => fd.user, { cascade: true })
-  franchiseDetails: FranchiseDetails;
+  // @OneToOne(() => FranchiseDetails, (fd) => fd.user, { cascade: true })
+  // franchiseDetails: FranchiseDetails;
 
-  @OneToOne(() => Tax, (tax) => tax.user, { cascade: true })
-  tax: Tax;
+  // @OneToOne(() => Tax, (tax) => tax.user, { cascade: true })
+  // tax: Tax;
 
-  @OneToOne(() => Tariff, (tariff) => tariff.user, { cascade: true })
-  tariff: Tariff;
+  // @OneToOne(() => Tariff, (tariff) => tariff.user, { cascade: true })
+  // tariff: Tariff;
 
-  @ManyToMany(() => ChargingStation, (cs) => cs.users)
-  @JoinTable({
-    name: 'user_station',
-    joinColumn: { name: 'user_id', referencedColumnName: 'id' },
-    inverseJoinColumn: {
-      name: 'charging_station_id',
-      referencedColumnName: 'id',
-    },
-  })
-  chargingStations: ChargingStation[];
+  // @ManyToMany(() => ChargingStation, (cs) => cs.users)
+  // @JoinTable({
+  //   name: 'user_station',
+  //   joinColumn: { name: 'user_id', referencedColumnName: 'id' },
+  //   inverseJoinColumn: {
+  //     name: 'charging_station_id',
+  //     referencedColumnName: 'id',
+  //   },
+  // })
+  // chargingStations: ChargingStation[];
 }

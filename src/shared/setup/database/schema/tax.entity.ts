@@ -7,7 +7,7 @@ export class Tax extends BaseEntity {
   @Column({ type: 'uuid', nullable: true })
   userId: string;
 
-  @OneToOne(() => User, (user) => user.tax)
-  @JoinColumn()
-  user: User;
+  // @OneToOne(() => User, (user) => user.tax)
+  // @JoinColumn()
+  // user: User;
 }

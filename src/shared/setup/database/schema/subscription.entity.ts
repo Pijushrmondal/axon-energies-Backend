@@ -7,7 +7,7 @@ export class Subscription extends BaseEntity {
   @Column({ type: 'uuid' })
   userId: string;
 
-  @ManyToOne(() => User, (user) => user.subscriptions)
-  @JoinColumn()
-  user: User;
+  // @ManyToOne(() => User, (user) => user.subscriptions)
+  // @JoinColumn()
+  // user: User;
 }

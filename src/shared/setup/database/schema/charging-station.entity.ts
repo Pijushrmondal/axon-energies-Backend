@@ -7,6 +7,6 @@ export class ChargingStation extends BaseEntity {
   @Column({ type: 'varchar' })
   name: string;
 
-  @ManyToMany(() => User, (user) => user.chargingStations)
-  users: User[];
+  // @ManyToMany(() => User, (user) => user.chargingStations)
+  // users: User[];
 }
