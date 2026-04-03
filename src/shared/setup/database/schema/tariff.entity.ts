@@ -1,13 +1,31 @@
-import { Column, Entity, JoinColumn, OneToOne } from 'typeorm';
+import { Column, Entity } from 'typeorm';
 import { BaseEntity } from './base.entity';
-import { User } from './user.entity';
 
 @Entity({ name: 'tariff' })
 export class Tariff extends BaseEntity {
-  @Column({ type: 'uuid', nullable: true })
-  userId: string;
+  // Human-readable label e.g. 'Standard AC Tariff'
+  @Column({ type: 'varchar' })
+  name: string;
 
-  // @OneToOne(() => User, (user) => user.tariff)
-  // @JoinColumn()
-  // user: User;
+  // 'per_unit' (₹ per kWh) | 'fixed' (flat session price)
+  @Column({ type: 'varchar' })
+  tariffType: string;
+
+  // Used when tariffType = 'per_unit'
+  @Column({ type: 'decimal', precision: 10, scale: 4, nullable: true })
+  ratePerUnit?: number;
+
+  // Used when tariffType = 'fixed'
+  @Column({ type: 'decimal', precision: 10, scale: 2, nullable: true })
+  fixedAmount?: number;
+
+  // Assignment scope — tariff can be tied to a station or a specific terminal
+  @Column({ type: 'uuid', nullable: true })
+  stationId?: string;
+
+  @Column({ type: 'uuid', nullable: true })
+  terminalId?: string;
+
+  @Column({ type: 'boolean', default: true })
+  isActive: boolean;
 }
