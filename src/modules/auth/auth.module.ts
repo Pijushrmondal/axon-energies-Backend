@@ -3,10 +3,12 @@ import { AppJwtModule } from '../../shared/setup/config/jwt.setup';
 import { UsersModule } from '../users/users.module';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
+import { JwtAuthGuard } from '../../shared/infra/guards/jwt-auth.guard';
 
 @Module({
   imports: [UsersModule, AppJwtModule],
   controllers: [AuthController],
-  providers: [AuthService],
+  providers: [AuthService, JwtAuthGuard],
+  exports: [JwtAuthGuard],
 })
 export class AuthModule {}
