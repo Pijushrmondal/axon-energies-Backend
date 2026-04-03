@@ -1,12 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsString } from 'class-validator';
 
-export class SendOtpDto {
+export class RefreshTokenDto {
   @ApiProperty({
-    example: '9999999999',
-    description: 'Registered mobile number of the user (10 digits)',
+    example: 'a3f8c...',
+    description: 'Refresh token received during OTP verification',
   })
   @IsNotEmpty()
   @IsString()
-  mobileNumber: string;
+  refreshToken: string;
 }

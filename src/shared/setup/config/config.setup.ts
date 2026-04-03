@@ -26,6 +26,9 @@ export const AppConfigModule = ConfigModule.forRoot({
     JWT_SECRET: Joi.string().required(),
     JWT_EXPIRY: Joi.string().default('1d'),
 
+    REFRESH_JWT_SECRET: Joi.string().required(),
+    REFRESH_JWT_EXPIRY: Joi.string().default('7d'),
+
     TEST_MOBILE_NUMBER: Joi.string().default('9999999999'),
     TEST_OTP: Joi.string().default('123456'),
   }),
