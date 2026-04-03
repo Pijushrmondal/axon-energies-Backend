@@ -25,10 +25,10 @@ export class CreateUserDto {
   @MinLength(6)
   password: string;
 
-  @ApiProperty({ example: 'uuid-of-role' })
-  @IsNotEmpty()
+  @ApiPropertyOptional({ example: 'uuid-of-role' })
+  @IsOptional()
   @IsUUID()
-  roleId: string;
+  roleId?: string;
 
   @ApiPropertyOptional({ example: '9999999999' })
   @IsOptional()

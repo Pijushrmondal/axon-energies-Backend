@@ -70,8 +70,8 @@ export class User extends BaseEntity {
 
   // ─── Foreign key ─────────────────────────────────────────────────────
 
-  @Column({ type: 'uuid' })
-  roleId: string;
+  @Column({ type: 'uuid', nullable: true })
+  roleId?: string;
 
   // ─── Relations ───────────────────────────────────────────────────────
 

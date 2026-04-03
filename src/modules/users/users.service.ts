@@ -32,7 +32,7 @@ export class UsersService {
       userName: dto.userName,
       email: dto.email,
       password: hashed,
-      roleId: dto.roleId,
+      ...(dto.roleId && { roleId: dto.roleId }),
       mobileNumber: dto.mobileNumber ? Number(dto.mobileNumber) : undefined,
     });
 
