@@ -27,7 +27,7 @@ export class User extends BaseEntity {
   profilePicture?: string;
 
   @Column({ type: 'varchar' })
-  password: string;
+  password: string; // hash password
 
   @Column({ type: 'varchar', unique: true })
   email: string;
@@ -48,7 +48,10 @@ export class User extends BaseEntity {
   resetTokenExpiration?: Date;
 
   @Column({ type: 'varchar', nullable: true })
-  resetPasswordOTP?: string;
+  resetPasswordOTP?: string; // hash otp
+
+  @Column({ type: 'boolean', default: false })
+  isLogin: boolean;
 
   @Column({ type: 'timestamp', nullable: true })
   resetPasswordOtpExpiration?: Date;
@@ -64,27 +67,6 @@ export class User extends BaseEntity {
 
   @Column({ type: 'float', nullable: true, default: 2.5 })
   tempSettlementPercentage?: number;
-
-  @Column({ type: 'varchar', default: 'admin' })
-  updatedBy: string;
-
-  @Column({ type: 'varchar', nullable: true })
-  emailUpdatedBy?: string;
-
-  @Column({ type: 'timestamp', nullable: true })
-  emailUpdatedAt?: Date;
-
-  @Column({ type: 'varchar', nullable: true })
-  userNameUpdatedBy?: string;
-
-  @Column({ type: 'timestamp', nullable: true })
-  userNameUpdatedAt?: Date;
-
-  @Column({ type: 'varchar', nullable: true })
-  mobileNumberUpdatedBy?: string;
-
-  @Column({ type: 'timestamp', nullable: true })
-  mobileNumberUpdatedAt?: Date;
 
   // ─── Foreign key ─────────────────────────────────────────────────────
 

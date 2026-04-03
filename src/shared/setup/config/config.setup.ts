@@ -22,6 +22,12 @@ export const AppConfigModule = ConfigModule.forRoot({
 
     DB_RETRY_ATTEMPTS: Joi.number().default(5),
     DB_RETRY_DELAY: Joi.number().default(3000),
+
+    JWT_SECRET: Joi.string().required(),
+    JWT_EXPIRY: Joi.string().default('1d'),
+
+    TEST_MOBILE_NUMBER: Joi.string().default('9999999999'),
+    TEST_OTP: Joi.string().default('123456'),
   }),
   validationOptions: {
     abortEarly: false,
