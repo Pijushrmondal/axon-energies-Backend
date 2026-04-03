@@ -4,10 +4,10 @@ import { User } from './user.entity';
 
 @Entity({ name: 'subscription' })
 export class Subscription extends BaseEntity {
-  @Column({ name: 'user_id', type: 'uuid' })
+  @Column({ type: 'uuid' })
   userId: string;
 
   @ManyToOne(() => User, (user) => user.subscriptions)
-  @JoinColumn({ name: 'user_id' })
+  @JoinColumn()
   user: User;
 }

@@ -20,10 +20,10 @@ import { Tax } from './tax.entity';
 export class User extends BaseEntity {
   // ─── Scalar columns ──────────────────────────────────────────────────
 
-  @Column({ name: 'user_name', type: 'varchar', unique: true })
+  @Column({ type: 'varchar', unique: true })
   userName: string;
 
-  @Column({ name: 'profile_picture', type: 'varchar', nullable: true })
+  @Column({ type: 'varchar', nullable: true })
   profilePicture?: string;
 
   @Column({ type: 'varchar' })
@@ -35,84 +35,66 @@ export class User extends BaseEntity {
   @Column({ type: 'varchar', nullable: true })
   address?: string;
 
-  @Column({ name: 'user_status', type: 'varchar', default: 'active' })
+  @Column({ type: 'varchar', default: 'active' })
   userStatus: string;
 
-  @Column({
-    name: 'mobile_number',
-    type: 'bigint',
-    nullable: true,
-    unique: true,
-  })
+  @Column({ type: 'bigint', nullable: true, unique: true })
   mobileNumber?: number;
 
-  @Column({ name: 'reset_token', type: 'varchar', nullable: true })
+  @Column({ type: 'varchar', nullable: true })
   resetToken?: string;
 
-  @Column({ name: 'reset_token_expiration', type: 'timestamp', nullable: true })
+  @Column({ type: 'timestamp', nullable: true })
   resetTokenExpiration?: Date;
 
-  @Column({ name: 'reset_password_otp', type: 'varchar', nullable: true })
+  @Column({ type: 'varchar', nullable: true })
   resetPasswordOTP?: string;
 
-  @Column({
-    name: 'reset_password_otp_expiration',
-    type: 'timestamp',
-    nullable: true,
-  })
+  @Column({ type: 'timestamp', nullable: true })
   resetPasswordOtpExpiration?: Date;
 
-  @Column({ name: 'is_first_time_login', type: 'boolean', default: false })
+  @Column({ type: 'boolean', default: false })
   isFirstTimeLogin: boolean;
 
   @Column({ type: 'varchar', nullable: true })
   poc?: string;
 
-  @Column({ name: 'user_key', type: 'varchar', nullable: true })
+  @Column({ type: 'varchar', nullable: true })
   userKey?: string;
 
-  @Column({
-    name: 'temp_settlement_percentage',
-    type: 'float',
-    nullable: true,
-    default: 2.5,
-  })
+  @Column({ type: 'float', nullable: true, default: 2.5 })
   tempSettlementPercentage?: number;
 
-  @Column({ name: 'updated_by', type: 'varchar', default: 'admin' })
+  @Column({ type: 'varchar', default: 'admin' })
   updatedBy: string;
 
-  @Column({ name: 'email_updated_by', type: 'varchar', nullable: true })
+  @Column({ type: 'varchar', nullable: true })
   emailUpdatedBy?: string;
 
-  @Column({ name: 'email_updated_at', type: 'timestamp', nullable: true })
+  @Column({ type: 'timestamp', nullable: true })
   emailUpdatedAt?: Date;
 
-  @Column({ name: 'user_name_updated_by', type: 'varchar', nullable: true })
+  @Column({ type: 'varchar', nullable: true })
   userNameUpdatedBy?: string;
 
-  @Column({ name: 'user_name_updated_at', type: 'timestamp', nullable: true })
+  @Column({ type: 'timestamp', nullable: true })
   userNameUpdatedAt?: Date;
 
-  @Column({ name: 'mobile_number_updated_by', type: 'varchar', nullable: true })
+  @Column({ type: 'varchar', nullable: true })
   mobileNumberUpdatedBy?: string;
 
-  @Column({
-    name: 'mobile_number_updated_at',
-    type: 'timestamp',
-    nullable: true,
-  })
+  @Column({ type: 'timestamp', nullable: true })
   mobileNumberUpdatedAt?: Date;
 
   // ─── Foreign key ─────────────────────────────────────────────────────
 
-  @Column({ name: 'role_id', type: 'uuid' })
+  @Column({ type: 'uuid' })
   roleId: string;
 
   // ─── Relations ───────────────────────────────────────────────────────
 
   @ManyToOne(() => Role, (role) => role.users, { eager: false })
-  @JoinColumn({ name: 'role_id' })
+  @JoinColumn()
   role: Role;
 
   @OneToMany(() => Subscription, (sub) => sub.user, { cascade: true })

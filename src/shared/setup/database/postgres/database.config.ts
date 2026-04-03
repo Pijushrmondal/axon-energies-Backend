@@ -1,6 +1,7 @@
 import { join } from 'path';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { ConfigService } from '@nestjs/config';
+import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
 export const getDatabaseConfig = (
   config: ConfigService,
@@ -16,6 +17,7 @@ export const getDatabaseConfig = (
     database: config.get<string>('DB_NAME'),
 
     synchronize: true,
+    namingStrategy: new SnakeNamingStrategy(),
 
     // Load all entities directly from the schema folder
     entities: [join(__dirname, '..', 'schema', '*.entity{.ts,.js}')],

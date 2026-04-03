@@ -1,6 +1,7 @@
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
 import * as dotenv from 'dotenv';
+import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
 // Load .env before reading process.env
 dotenv.config();
@@ -16,6 +17,7 @@ export const AppDataSource = new DataSource({
   database: process.env.DB_NAME,
 
   synchronize: false,
+  namingStrategy: new SnakeNamingStrategy(),
 
   ssl: isProduction ? { rejectUnauthorized: false } : false,
 

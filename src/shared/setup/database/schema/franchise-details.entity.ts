@@ -4,10 +4,10 @@ import { User } from './user.entity';
 
 @Entity({ name: 'franchise_details' })
 export class FranchiseDetails extends BaseEntity {
-  @Column({ name: 'user_id', type: 'uuid' })
+  @Column({ type: 'uuid' })
   userId: string;
 
   @OneToOne(() => User, (user) => user.franchiseDetails)
-  @JoinColumn({ name: 'user_id' })
+  @JoinColumn()
   user: User;
 }
